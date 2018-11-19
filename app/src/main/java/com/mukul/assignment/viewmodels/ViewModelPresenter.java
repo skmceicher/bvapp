@@ -1,16 +1,9 @@
-package com.mukul.assignment.home;
+package com.mukul.assignment.viewmodels;
 
-import android.util.Log;
-
+import com.mukul.assignment.home.HomeView;
 import com.mukul.assignment.models.PostList;
 import com.mukul.assignment.networking.NetworkError;
 import com.mukul.assignment.networking.Service;
-import com.mukul.assignment.viewmodels.PostListViewModel;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.inject.Singleton;
 
 import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
@@ -18,12 +11,12 @@ import rx.subscriptions.CompositeSubscription;
 /**
  * Created by mukul on 6/25/16.
  */
-public class HomePresenter {
+public class ViewModelPresenter {
     private final Service service;
     private final HomeView view;
     private CompositeSubscription subscriptions;
 
-    public HomePresenter(Service service, HomeView view) {
+    public ViewModelPresenter(Service service, HomeView view) {
         this.service = service;
         this.view = view;
         this.subscriptions = new CompositeSubscription();

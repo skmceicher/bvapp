@@ -1,9 +1,11 @@
 package com.mukul.assignment.home;
 
+import android.arch.lifecycle.LiveData;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,9 +24,11 @@ import com.mukul.assignment.models.Skill;
 import com.mukul.assignment.models.WorkFunction;
 import com.mukul.assignment.networking.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 public class HomeActivity extends BaseApp implements HomeView, TabLayout.OnTabSelectedListener {
 
@@ -37,8 +41,6 @@ public class HomeActivity extends BaseApp implements HomeView, TabLayout.OnTabSe
     @Inject
     public  Service service;
     ProgressBar progressBar;
-
-    private OnAboutDataReceivedListener mAboutDataListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -79,7 +81,7 @@ public class HomeActivity extends BaseApp implements HomeView, TabLayout.OnTabSe
         //getSupportActionBar().setHomeButtonEnabled(true);
         mTopToolbar.setNavigationIcon(R.drawable.menu);
         //Adding the tabs using addTab() method
-        tabLayout.setTabIndicatorFullWidth(false);
+        /*tabLayout.setTabIndicatorFullWidth(false);
         tabLayout.addTab(tabLayout.newTab().setText("SKILL SET"));
         tabLayout.addTab(tabLayout.newTab().setText("WORK FUNCTION"));
         tabLayout.addTab(tabLayout.newTab().setText("INDUSTRY"));
@@ -92,7 +94,7 @@ public class HomeActivity extends BaseApp implements HomeView, TabLayout.OnTabSe
         viewPager.setAdapter(viewPagerAdapter);
         //Adding onTabSelectedListener to swipe views
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));*/
 
     }
 
@@ -141,9 +143,44 @@ public class HomeActivity extends BaseApp implements HomeView, TabLayout.OnTabSe
         tvCtc.setText(postListResponse.getData().getExpectedCtc());
         tvWorking.setText(postListResponse.getData().getLastCompany().getName());
         tvRole.setText(postListResponse.getData().getDesignation().getName());
+
+        StringBuilder stringBuilder = new StringBuilder();
         List<Skill> skillList = postListResponse.getData().getSkills();
+        for(Skill skill : skillList)
+        {
+            stringBuilder.append(skill.getName()+" | ");
+        }
+        Log.i("Skill :","list " + stringBuilder.toString().substring(0,stringBuilder.toString().length()-2));
+        stringBuilder = new StringBuilder();
         List<WorkFunction> workFunctionList = postListResponse.getData().getWorkFunctions();
+        for(WorkFunction workFunction : workFunctionList)
+        {
+            stringBuilder.append(workFunction.getName()+" | ");
+        }
+        Log.i("workFunction :","list " + stringBuilder.toString().substring(0,stringBuilder.toString().length()-2));
+        stringBuilder = new StringBuilder();
         List<Industry> industryList = postListResponse.getData().getIndustries();
+        for(Industry industry : industryList)
+        {
+            stringBuilder.append(industry.getName()+" | ");
+        }
+        Log.i("industry :","list " + stringBuilder.toString().substring(0,stringBuilder.toString().length()-2));
+
+        tabLayout.setTabIndicatorFullWidth(false);
+        tabLayout.addTab(tabLayout.newTab().setText("SKILL SET"));
+        tabLayout.addTab(tabLayout.newTab().setText("WORK FUNCTION"));
+        tabLayout.addTab(tabLayout.newTab().setText("INDUSTRY"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        //Initializing viewPager
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        //Initializing view pager adapter
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        //Adding adapter to pager
+        viewPager.setAdapter(viewPagerAdapter);
+        //Adding onTabSelectedListener to swipe views
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+
     }
 
     @Override
@@ -194,14 +231,9 @@ public class HomeActivity extends BaseApp implements HomeView, TabLayout.OnTabSe
     public void showMessage1(View view) {
         displayToast(getString(R.string.message_cross));
     }
-    public interface OnAboutDataReceivedListener {
-        void onDataReceived(PostList model);
-    }
     public void showMessage2(View view) {
         displayToast(getString(R.string.message_like));
     }
-    public void setAboutDataListener(OnAboutDataReceivedListener listener) {
-        this.mAboutDataListener = listener;
-    }
+
 
 }

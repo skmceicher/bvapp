@@ -1,6 +1,17 @@
 <resources>
-    <string name="app_name">Binary Veda App</string>
+    <string name="app_name">Android Dev</string>
+
     <string name="message_hand">hand clicked</string>
     <string name="message_cross">cross clicked</string>
     <string name="message_like">like clicked</string>
+
+    <string name="tv_name">Yogyakarta</string>
+    <string name="tv_designation">Yogyakarta</string>
+    <string name="tv_location">Yogyakarta</string>
+    <string name="tv_qualification">Yogyakarta</string>
+    <string name="tv_qualification1">Qualification</string>
+    <string name="tv_work">Work Experience</string>
+    <string name="tv_ctc">Expected CTC</string>
+    <string name="tv_cwork">Currently Working:</string>
+    <string name="tv_desig">Designation</string>
 </resources>

@@ -12,6 +12,6 @@ public interface HomeView {
 
     void onFailure(String appErrorMessage);
 
-    void getCityListSuccess(PostList cityListResponse);
+    void getCityListSuccess(PostList postListResponse);
 
 }

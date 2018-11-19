@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="@drawable/background_color"
-    tools:context="com.mukul.assignment.com.mukul.assignment.home.HomeActivity">
-
+    tools:context="com.mukul.assignment.home.HomeActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,6 +22,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:subtitleTextColor="@color/white"
         app:title="@string/app_name"
+        app:titleMarginStart="50dp"
         app:titleTextAppearance="@style/Toolbar.TitleText"
         app:titleTextColor="@color/white" />
 
@@ -34,55 +39,54 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             /> -->
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/tv_profile_image"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginLeft="20dp"
-            android:layout_centerInParent="true"
-
+            android:layout_width="88dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="40dp"
             />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp"
         android:orientation="vertical">
         <TextView
             android:id="@+id/tv_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yogyakarta"
-            android:textSize="18dp"
+            android:text="@string/tv_name"
+            android:textSize="22sp"
             android:textColor="@android:color/white"/>
 
         <TextView
             android:id="@+id/tv_designation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="338 Hotel"
-            android:textSize="16dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/tv_designation"
+            android:textSize="14sp"
             android:textColor="@android:color/white"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
             <ImageView
                 android:id="@+id/tv_location_image"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="4dp"
                 android:src="@drawable/location"
                 />
             <TextView
                 android:id="@+id/tv_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="338 Hotel"
-                android:textSize="16dp"
+                android:text="@string/tv_location"
+                android:textSize="16sp"
+                android:layout_marginStart="4dp"
                 android:textColor="@android:color/white"/>
         </LinearLayout>
 
@@ -119,8 +123,8 @@
                     android:orientation="vertical">
                 <ImageView
                     android:id="@+id/tv_qualification_image"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/bag"
                     />
@@ -129,7 +133,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="338 Hotel"
+                    android:text="@string/tv_qualification"
                     android:textSize="16sp"
                     android:textColor="@color/black"/>
                 <TextView
@@ -137,8 +141,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Qualification"
-                    android:textSize="16sp"
+                    android:text="@string/tv_qualification1"
+                    android:textSize="12sp"
                     android:textColor="@color/lightGrayText"/>
                 </LinearLayout>
 
@@ -146,12 +150,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
                     android:orientation="vertical">
                     <ImageView
                         android:id="@+id/tv_experience_image"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/work_experience"
                         />
@@ -160,16 +163,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="338 Hotel"
-                        android:textSize="16dp"
+                        android:text="@string/tv_qualification"
+                        android:textSize="16sp"
                         android:textColor="@color/black"/>
                     <TextView
                         android:id="@+id/tv_experience1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Work Experience"
-                        android:textSize="16sp"
+                        android:text="@string/tv_work"
+                        android:textSize="12sp"
                         android:textColor="@color/lightGrayText"/>
                 </LinearLayout>
 
@@ -180,8 +183,8 @@
                     android:orientation="vertical">
                     <ImageView
                         android:id="@+id/tv_ctc_image"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/expected_ctc"
                         />
@@ -190,16 +193,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="338 Hotel"
-                        android:textSize="16dp"
+                        android:text="@string/tv_qualification"
+                        android:textSize="16sp"
                         android:textColor="@color/black"/>
                     <TextView
                         android:id="@+id/tv_ctc1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:text="Expected CTC"
-                        android:textSize="16sp"
+                        android:text="@string/tv_ctc"
+                        android:textSize="12sp"
                         android:textColor="@color/lightGrayText"/>
                 </LinearLayout>
 
@@ -215,18 +218,20 @@
                     android:id="@+id/tv_cwork"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:layout_gravity="center_horizontal"
-                    android:text="Currently Working:"
-                    android:textSize="16sp"
+                    android:text="@string/tv_cwork"
+                    android:textSize="12sp"
                     android:textColor="@color/lightGrayText"/>
                 <TextView
                     android:id="@+id/tv_cwork1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:layout_gravity="center_horizontal"
-                    android:text="338 Hotel"
-                    android:textSize="16dp"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/tv_cwork"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"/>
             </LinearLayout>
 
             <LinearLayout
@@ -239,18 +244,21 @@
                     android:id="@+id/tv_desig"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:layout_gravity="center_horizontal"
-                    android:text="Designation"
-                    android:textSize="16sp"
+                    android:text="@string/tv_desig"
+                    android:textSize="12sp"
                     android:textColor="@color/lightGrayText"/>
                 <TextView
                     android:id="@+id/tv_desig1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
                     android:layout_gravity="center_horizontal"
-                    android:text="338 Hotel"
-                    android:textSize="16dp"
-                    android:textColor="@android:color/black"/>
+                    android:text="@string/tv_desig"
+                    android:textSize="16sp"
+                    android:textColor="@color/lightBlack"/>
             </LinearLayout>
 
             <android.support.design.widget.TabLayout
@@ -268,7 +276,7 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/tabLayout" />
 
         </LinearLayout>
@@ -284,7 +292,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <!--<android.support.v7.widget.CardView
@@ -300,7 +307,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:background="@drawable/hand" />
-        </android.support.v7.widget.CardView>-->
+        </android.support.v7.widget.CardView>
 
         <ImageView
             android:id="@+id/tv_t_image"
@@ -330,17 +337,100 @@
             android:layout_gravity="center"
             android:src="@drawable/like"
             android:onClick="showMessage2"
-            />
+            />-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <android.support.v7.widget.CardView
+                android:layout_width="80dp"
+                android:layout_marginStart="60dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/hand"
+                    android:onClick="showMessage"/>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <android.support.v7.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/lightGray"
+                app:cardBackgroundColor="@color/lightGray"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/cross"
+                    android:onClick="showMessage1"/>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+            <android.support.v7.widget.CardView
+                android:layout_width="80dp"
+                android:layout_marginEnd="60dp"
+                android:layout_height="80dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="2dp"
+                app:cardUseCompatPadding="true">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/like"
+                    android:onClick="showMessage2"/>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
     </LinearLayout>
     </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progress"
+        android:layout_above="@id/cardView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@color/white"
+        android:src="@drawable/loc_b"
+        android:scaleType="center"
+        app:layout_anchor="@id/tv_profile_image"
+        app:layout_anchorGravity="right|bottom|end"
+        app:fabSize="mini"/>
 
 
-</RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -2,8 +2,8 @@ package com.mukul.assignment.deps;
 
 
 import com.mukul.assignment.home.HomeActivity;
-import com.mukul.assignment.home.HomeActivityNew;
 import com.mukul.assignment.networking.NetworkModule;
+import com.mukul.assignment.viewmodels.PostListViewModel;
 
 import javax.inject.Singleton;
 
@@ -14,6 +14,6 @@ import dagger.Component;
  */
 @Singleton
 @Component(modules = {NetworkModule.class,})
-public interface Deps {
-    void inject(HomeActivity homeActivity);
+public interface DepsViewModel {
+    void inject(PostListViewModel postListViewModel);
 }
